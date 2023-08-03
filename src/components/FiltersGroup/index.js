@@ -40,7 +40,7 @@ const FiltersGroup = props => {
     const {categoryOptions} = props
 
     return categoryOptions.map(category => {
-      const {changeCategory, activeRatingId} = props
+      const {changeCategory, activeCategoryId} = props
       const onClickCategoryItem = () => changeCategory(category.categoryId)
       const isActive = category.categoryId === activeCategoryId
       const categoryClassName = isActive
@@ -75,6 +75,11 @@ const FiltersGroup = props => {
 
   const onChangeSearchInput = event => {
     const {changeSearchInput} = props
+    changeSearchInput(event.target.values)
+  }
+
+  const renderSearchInput = () => {
+    const {searchInput} = props
 
     return (
       <div className="filters-group-container">
